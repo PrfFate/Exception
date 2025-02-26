@@ -8,20 +8,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.aliacar.controller.IEmployeeController;
 import com.aliacar.dto.DtoEmployee;
-
+import com.aliacar.model.RootEntity;
 import com.aliacar.service.IEmployeeService;
 
 @RestController
 @RequestMapping("/rest/api/employee")
-public class EmployeeControllerImpl implements IEmployeeController{
+public class EmployeeControllerImpl extends RestBaseController implements IEmployeeController{
 
     @Autowired
     private IEmployeeService employeeService;
 
     @GetMapping("/list/{id}")
     @Override
-    public DtoEmployee findEmployeeById(@PathVariable(value ="id")Long id) {
-    return employeeService.findEmployeeById(id);
+    public RootEntity<DtoEmployee> findEmployeeById(@PathVariable(value ="id")Long id) {
+    return ok(employeeService.findEmployeeById(id));
        
     }
 

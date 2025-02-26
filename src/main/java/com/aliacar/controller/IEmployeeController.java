@@ -1,10 +1,11 @@
 package com.aliacar.controller;
 
 import com.aliacar.dto.DtoEmployee;
+import com.aliacar.model.RootEntity;
 
 
 public interface IEmployeeController {
 
-    public DtoEmployee findEmployeeById(Long id);
+    public RootEntity<DtoEmployee> findEmployeeById(Long id);
 
 }
